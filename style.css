@@ -59,11 +59,11 @@ section {
   font-family: "Rubik Moonrocks", sans-serif;
   font-weight: 400;
   font-style: normal;
-  background: rgb(125, 119, 0);
-  background: -moz-radial-gradient(circle, rgba(125, 119, 0, 1) 0%, rgba(0, 0, 0, 1) 84%);
-  background: -webkit-radial-gradient(circle, rgba(125, 119, 0, 1) 0%, rgba(0, 0, 0, 1) 84%);
-  background: radial-gradient(circle, rgba(125, 119, 0, 1) 0%, rgba(0, 0, 0, 1) 84%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7d7700", endColorstr="#000000", GradientType=1);
+  background: rgb(1, 8, 78);
+  background: -moz-linear-gradient(169deg, rgba(1, 8, 78, 1) 0%, rgba(0, 11, 97, 1) 31%, rgba(2, 0, 36, 1) 43%, rgba(1, 7, 72, 1) 77%, rgba(0, 212, 255, 1) 100%);
+  background: -webkit-linear-gradient(169deg, rgba(1, 8, 78, 1) 0%, rgba(0, 11, 97, 1) 31%, rgba(2, 0, 36, 1) 43%, rgba(1, 7, 72, 1) 77%, rgba(0, 212, 255, 1) 100%);
+  background: linear-gradient(169deg, rgba(1, 8, 78, 1) 0%, rgba(0, 11, 97, 1) 31%, rgba(2, 0, 36, 1) 43%, rgba(1, 7, 72, 1) 77%, rgba(0, 212, 255, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#01084e", endColorstr="#00d4ff", GradientType=1);
 }
 
 .socials,
@@ -103,12 +103,11 @@ section {
   color: antiquewhite;
   text-decoration: none;
   font-size: 38px;
-  background: rgb(125, 119, 0);
-  background: -moz-radial-gradient(circle, rgba(125, 119, 0, 1) 0%, rgba(0, 0, 0, 1) 84%);
-  background: -webkit-radial-gradient(circle, rgba(125, 119, 0, 1) 0%, rgba(0, 0, 0, 1) 84%);
-  background: radial-gradient(circle, rgba(125, 119, 0, 1) 0%, rgba(0, 0, 0, 1) 84%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7d7700", endColorstr="#000000", GradientType=1);
-  border-color: rgb(125, 119, 0);
+  background: rgb(1, 8, 78);
+  background: -moz-linear-gradient(169deg, rgba(1, 8, 78, 1) 0%, rgba(0, 11, 97, 1) 31%, rgba(2, 0, 36, 1) 43%, rgba(1, 7, 72, 1) 77%, rgba(0, 212, 255, 1) 100%);
+  background: -webkit-linear-gradient(169deg, rgba(1, 8, 78, 1) 0%, rgba(0, 11, 97, 1) 31%, rgba(2, 0, 36, 1) 43%, rgba(1, 7, 72, 1) 77%, rgba(0, 212, 255, 1) 100%);
+  background: linear-gradient(169deg, rgba(1, 8, 78, 1) 0%, rgba(0, 11, 97, 1) 31%, rgba(2, 0, 36, 1) 43%, rgba(1, 7, 72, 1) 77%, rgba(0, 212, 255, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#01084e", endColorstr="#00d4ff", GradientType=1);
 }
 
 .soundicon1 {
