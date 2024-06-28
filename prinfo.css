@@ -1,4 +1,4 @@
-.prinfodiv1{
+.prinfodiv1 {
     font-family: "Rubik Moonrocks", sans-serif;
     margin-top: 5px;
     border-style: dashed;
@@ -8,33 +8,37 @@
     margin-left: auto;
     margin-right: auto;
     font-size: 63px;
-    background: rgb(79,76,0);
-    background: -moz-radial-gradient(circle, rgba(79,76,0,1) 0%, rgba(63,66,20,1) 18%, rgba(56,62,29,1) 26%, rgba(0,29,96,1) 88%);
-    background: -webkit-radial-gradient(circle, rgba(79,76,0,1) 0%, rgba(63,66,20,1) 18%, rgba(56,62,29,1) 26%, rgba(0,29,96,1) 88%);
-    background: radial-gradient(circle, rgba(79,76,0,1) 0%, rgba(63,66,20,1) 18%, rgba(56,62,29,1) 26%, rgba(0,29,96,1) 88%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4f4c00",endColorstr="#001d60",GradientType=1);
+    background: rgb(54,1,78);
+    background: -moz-linear-gradient(169deg, rgba(54,1,78,1) 0%, rgba(52,0,97,1) 7%, rgba(36,0,32,1) 43%, rgba(39,1,72,1) 99%, rgba(0,9,255,1) 100%);
+    background: -webkit-linear-gradient(169deg, rgba(54,1,78,1) 0%, rgba(52,0,97,1) 7%, rgba(36,0,32,1) 43%, rgba(39,1,72,1) 99%, rgba(0,9,255,1) 100%);
+    background: linear-gradient(169deg, rgba(54,1,78,1) 0%, rgba(52,0,97,1) 7%, rgba(36,0,32,1) 43%, rgba(39,1,72,1) 99%, rgba(0,9,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#36014e",endColorstr="#0009ff",GradientType=1);
+    margin-bottom: 1%;
 }
-.infobox{
+
+.infobox {
     font-size: 35px;
     font-family: "Rubik Moonrocks", sans-serif;
     display: inline-flex;
     padding: 2%;
     border-style: double;
     border-radius: 20px;
-    background: rgb(0,82,106);
-    background: -moz-linear-gradient(0deg, rgba(0,82,106,1) 0%, rgba(0,0,0,1) 100%);
-    background: -webkit-linear-gradient(0deg, rgba(0,82,106,1) 0%, rgba(0,0,0,1) 100%);
-    background: linear-gradient(0deg, rgba(0,82,106,1) 0%, rgba(0,0,0,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00526a",endColorstr="#000000",GradientType=1);
+    background: rgb(0, 82, 106);
+    background: -moz-linear-gradient(0deg, rgba(0, 82, 106, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(0, 82, 106, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    background: linear-gradient(0deg, rgba(0, 82, 106, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00526a", endColorstr="#000000", GradientType=1);
 
 }
-.infobox2{
+
+.infobox2 {
     text-align: left;
     margin-top: 0%;
     font-size: 23px;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-weight: 100;
-    font-style:italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 400;
+    font-style: italic;
+    font-weight: bold;
     display: inline-flex;
     border-style: none;
     margin-top: 0px;
@@ -43,35 +47,44 @@
 
 }
 
-.projectinfo{
+.projectinfo {
     font-family: "Rubik Moonrocks", sans-serif;
     padding: 3%;
 
+
 }
 
-.font{
+.font {
     font-family: "Rubik Moonrocks", sans-serif;
 }
+
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+}
+
+/* Track */
+::-webkit-scrollbar-track {
     margin: 10px;
     height: 20px;
-    box-shadow: inset 0 0 20px rgb(0, 0, 0); 
+    box-shadow: inset 0 0 20px rgb(0, 0, 0);
     border-radius: 20px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: rgb(0, 183, 255); 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(0, 183, 255);
     border-radius: 20px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #000000; 
-  }
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #000000;
+}
+
+@media only screen and (max-width: 1000px) {}
+
+
+
+
+

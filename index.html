@@ -6,11 +6,9 @@
   <link rel="stylesheet" type="text/css" href="./prinfo.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.min.css">
   <link rel="icon" type="image/x-icon" href="moon.png">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
+  <link rel="stylesheet" href="./w3.css">
 </head>
 
 <body>
@@ -41,7 +39,7 @@
 
   <div id="projectinfobutton" class="projectinfobutton" onclick='infoButton()'>
 
-    <a id="down" style="text-emphasis: none; color: rgb(255, 255, 255);">Info <i class="fa fa-angle-double-down "></i>
+    <a class="infodown" id="down" style="text-emphasis: none; color: rgb(255, 255, 255);">Info <i class="fa fa-angle-double-down "></i>
     </a>
     <a id="up" style="text-emphasis: none; color: rgb(255, 255, 255); display: none;">Info <i
         class="fa fa-angle-double-up "></i> </a>
@@ -67,19 +65,27 @@
       <div class="infobox"><i class="fa fa-tint "><br>
           <div class="font">0.5 Eth</div>
         </i></div>
+        <div class="infobox"><i class="fa fa-area-chart "><br>
+          <div class="font">Tax 0/0</div>
+        </i></div>
       <div class="infobox"><i class="fa fa-money "><br>
           <div class="font">1,000,000,000</div>
         </i></div>
+
+
     </div>
 
     <div class="prinfodiv1" >
-      Roadmap<br>
-      <div class="infobox2">Base Chain is making history as the first meme token to plant its flag on the moon. Our cute
-        mascot on the moon shows our adventurous spirit and drive for innovation. We're here to shake up the blockchain
-        world with a safe and easy-to-use token. Join us on this exciting journey as we reach new heights. Base Chain:
-        leading the way in the blockchain revolution, one giant leap at a time.</div>
-
+      First on Moon<br>
+      <img class="flagmoon" src="./flag2.png">
+      <div class="infobox2"></div>
     </div>
+    <!-- <div class="prinfodiv1" >
+      Roadmap<br>
+      <div class="infobox"> Get Calls </div>
+      <div class="infobox"> Dex Update </div>
+      <div class="infobox"> Base Trending</div>
+      <div class="infobox"> Moon </div> -->
 
 
   </div>
