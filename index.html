@@ -3,34 +3,84 @@
 
 <head>
   <link rel="stylesheet" type="text/css" href="./style.css">
+  <link rel="stylesheet" type="text/css" href="./prinfo.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="icon" type="image/x-icon" href="moon.png">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 </head>
 
 <body>
+  <script src="./functionality.js"></script>
 
   <h1 class="main_topic">Base On Moon!</h1>
   <div class="socials">
 
     <a href="https://app.uniswap.org/swap" style="text-emphasis: none; color: rgb(255, 255, 255); padding: 5px;"><i
         class="fa fa-exchange socails"></i></a>
-    <a href="https://telegram.org/" style="color: rgb(255, 255, 255); padding: 5px;"><i class="fa fa-telegram socails"
-        ></i></a>
+    <a href="https://telegram.org/" style="color: rgb(255, 255, 255); padding: 5px;"><i
+        class="fa fa-telegram socails"></i></a>
     <a href="https://x.com/" style="color: rgb(255, 255, 255); padding: 5px;"><i class="fa fa-twitter socails"></i></a>
     <a href="https://dexscreener.com/" style="color: rgb(255, 255, 255);"><img class="buttonimg"
         src="dexbutton.png"></a>
     <a href="https://www.dextools.io" style="color: rgb(255, 255, 255); padding: 0;"><img class="buttonimg"
         src="dextoolsbutton.png"></a>
   </div>
+
   <div class="sound">
 
-    <a class="soundicon soundicon1" href="https://app.uniswap.org/swap"
+    <a id="on" class="soundicon soundicon1" onclick='soundClick("on")'
       style="text-emphasis: none; color: rgb(255, 255, 255);"><i class="fa fa-volume-off socails"></i> ON</a>
-    <a class="soundicon soundicon2" href="https://app.uniswap.org/swap"
-      style="text-emphasis: none; color: rgb(255, 255, 255);"><i class="fa fa-volume-up socails"></i> ON</a>
+    <a id="off" class="soundicon soundicon2" onclick='soundClick("off")'
+      style="text-emphasis: none; color: rgb(255, 255, 255);"><i class="fa fa-volume-up socails"></i> OFF</a>
+
+  </div>
+
+  <div id="projectinfobutton" class="projectinfobutton" onclick='infoButton()'>
+
+    <a id="down" style="text-emphasis: none; color: rgb(255, 255, 255);">Info <i class="fa fa-angle-double-down "></i>
+    </a>
+    <a id="up" style="text-emphasis: none; color: rgb(255, 255, 255); display: none;">Info <i
+        class="fa fa-angle-double-up "></i> </a>
+  </div>
+  <div id="projectinfo" class="projectinfo  w3-animate-zoom" style="overflow-y: scroll; height:65%">
+    <div class="prinfodiv1" >
+      About<br>
+      <div class="infobox2">Base Chain is making history as the first meme token to plant its flag on the moon. Our cute
+        mascot on the moon shows our adventurous spirit and drive for innovation. We're here to shake up the blockchain
+        world with a safe and easy-to-use token. Join us on this exciting journey as we reach new heights. Base Chain:
+        leading the way in the blockchain revolution, one giant leap at a time.</div>
+
+    </div>
+
+    <div class="prinfodiv1">
+      Moonomics<br>
+      <div class="infobox"><i class="fa fa-lock "><br>
+          <div class="font">1- Month</div>
+        </i></div>
+      <div class="infobox"><i class="fa fa-user "><br>
+          <div class="font">Renounced</div>
+        </i></div>
+      <div class="infobox"><i class="fa fa-tint "><br>
+          <div class="font">0.5 Eth</div>
+        </i></div>
+      <div class="infobox"><i class="fa fa-money "><br>
+          <div class="font">1,000,000,000</div>
+        </i></div>
+    </div>
+
+    <div class="prinfodiv1" >
+      Roadmap<br>
+      <div class="infobox2">Base Chain is making history as the first meme token to plant its flag on the moon. Our cute
+        mascot on the moon shows our adventurous spirit and drive for innovation. We're here to shake up the blockchain
+        world with a safe and easy-to-use token. Join us on this exciting journey as we reach new heights. Base Chain:
+        leading the way in the blockchain revolution, one giant leap at a time.</div>
+
+    </div>
+
 
   </div>
   <!-- <h2 class="contract">CA: 0x00000000000000000000000000000000</h2> -->
@@ -52,8 +102,11 @@ Basic cloth animation is here -> https://codepen.io/wakana-k/pen/PoVLzvm
     }
   }
 </script>
+
   <script type="module" src="bundle.js"></script>
+
 </body>
+
 
 
 </html>

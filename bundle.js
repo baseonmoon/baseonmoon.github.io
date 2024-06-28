@@ -24,9 +24,9 @@ window.mobileCheck = function() {
 const inner_width_global = window.innerWidth;
 const inner_heigth_global = window.innerHeight;
 
-var cam_fov = 25;
+var cam_fov = 38;
 
-if(mobileCheck()) cam_fov = 35;
+if(mobileCheck()) cam_fov = 40;
 
 // const inner_width_global = 996;
 // const inner_heigth_global = 1174;
