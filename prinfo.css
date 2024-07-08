@@ -1,7 +1,7 @@
 .prinfodiv1 {
     font-family: "Rubik Moonrocks", sans-serif;
     margin-top: 5px;
-    border-style: dashed;
+    border-style: solid;
     border-radius: 20px;
     padding: 5px;
     width: 85%;
@@ -28,11 +28,11 @@
     background: -webkit-linear-gradient(0deg, rgba(0, 82, 106, 1) 0%, rgba(0, 0, 0, 1) 100%);
     background: linear-gradient(0deg, rgba(0, 82, 106, 1) 0%, rgba(0, 0, 0, 1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00526a", endColorstr="#000000", GradientType=1);
-
+    margin-top: 2%;
 }
 
 .infobox2 {
-    text-align: left;
+    text-align: center;
     margin-top: 0%;
     font-size: 23px;
     font-family: Georgia, 'Times New Roman', Times, serif;

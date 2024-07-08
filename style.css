@@ -264,10 +264,25 @@ a {
   animation-duration: 0.25s;
   animation-iteration-count: infinite;
 }
-
+.logo{
+  width: 6.5%;
+  top:0;
+  left:0;
+  position: absolute;
+  z-index: 1000;
+  margin-top: 1%;
+  margin-left: 4%;
+  padding-top: 2px;
+}
+.art{
+  width: 12%;
+}
 @media only screen and (max-width: 1000px) {
   .projectinfo{
     margin-top: 27%;
+  }
+  .logo{
+    display: none;
   }
   .contract {
     margin-top: 200%;
@@ -371,6 +386,7 @@ a {
   left: 0;
   top:0;
   text-align: center;
-  margin-top: 20%;
-  margin-bottom: auto;
+  margin-top: 15%;
+  margin-bottom: 3%;
 }
+
