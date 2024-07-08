@@ -30,7 +30,7 @@ const inner_heigth_global = window.innerHeight;
 
 var cam_fov = 70;
 
-if (mobileCheck()) cam_fov = 60;
+if (mobileCheck()) cam_fov = 70;
 
 // const inner_width_global = 996;
 // const inner_heigth_global = 1174;
