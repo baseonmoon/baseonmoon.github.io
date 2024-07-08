@@ -501,21 +501,6 @@ if (mobileCheck()) cam_fov = 40;
                 );
         }
     );
-    loader.load('base.glb',
-        (gltf) => {
-            gltf.scene.position.set(0.0, -1.28, 0)
-            gltf.scene.rotation.set(-0.0, 1.58, 0)
-            gltf.scene.scale.set(0.2, 0.2, 0.2);
-            const model = gltf.scene;
-            model.traverse(child => child.material = bakedMaterial)
-            S.add(model)
-            // loading.style.display = 'none'
-
-        },
-        (xhr) => {
-            console.log((xhr.loaded / xhr.total * 100) + '% loaded')
-        }
-    )
     loader2.load('pepe.gltf',
         (gltf) => {
             gltf.scene.position.set(0, -0.4, 1.8)
@@ -548,7 +533,21 @@ if (mobileCheck()) cam_fov = 40;
             console.log((xhr.loaded / xhr.total * 100) + '% loaded')
         }
     )
-    
+    loader.load('base.glb',
+    (gltf) => {
+        gltf.scene.position.set(0.0, -1.28, 0)
+        gltf.scene.rotation.set(-0.0, 1.58, 0)
+        gltf.scene.scale.set(0.2, 0.2, 0.2);
+        const model = gltf.scene;
+        model.traverse(child => child.material = bakedMaterial)
+        S.add(model)
+        // loading.style.display = 'none'
+
+    },
+    (xhr) => {
+        console.log((xhr.loaded / xhr.total * 100) + '% loaded')
+    }
+)
 
 })();
 
