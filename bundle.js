@@ -135,7 +135,7 @@ await loader.load('base.glb',
 
     },
     (xhr) => {
-        var text = Math.floor((xhr.loaded / xhr.total * 100)) + '% loaded';
+        var text = Math.floor((xhr.loaded / xhr.total * 99)) + '% loaded';
         load_text.innerHTML = text;
     }
 )
@@ -149,8 +149,7 @@ while (true) {
     console.log("here 2")
 }
 
-const load_panel = document.getElementById("loadings");
-load_panel.style.display = "none";
+
 
 console.log("calling function")
 !(function () {
@@ -614,12 +613,14 @@ console.log("calling function")
                             })(),
                             i(0);
 
+                            const load_panel = document.getElementById("loadings");
+                            load_panel.style.display = "none";
                     }
                 );
-        }
+}
 
-    );
+);
 
-})();
+}) ();
 
 
