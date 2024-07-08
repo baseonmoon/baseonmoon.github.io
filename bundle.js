@@ -135,7 +135,7 @@ await loader.load('base.glb',
 
     },
     (xhr) => {
-        var text = (xhr.loaded / xhr.total * 100) + '% loaded';
+        var text = Math.floor((xhr.loaded / xhr.total * 100)) + '% loaded';
         load_text.innerHTML = text;
     }
 )
