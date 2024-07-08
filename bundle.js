@@ -188,6 +188,8 @@ if (mobileCheck()) cam_fov = 40;
     const bakedMaterial = new THREE.MeshBasicMaterial({ map: bakedTexture })
     //Loader
     const loader = new GLTFLoader();
+    const loader2 = new GLTFLoader();
+    const loader3 = new GLTFLoader();
 
     const U = new THREE.TextureLoader();
     U.load(
@@ -514,7 +516,7 @@ if (mobileCheck()) cam_fov = 40;
             console.log((xhr.loaded / xhr.total * 100) + '% loaded')
         }
     )
-    loader.load('pepe.gltf',
+    loader2.load('pepe.gltf',
         (gltf) => {
             gltf.scene.position.set(0, -0.4, 1.8)
             gltf.scene.rotation.set(-0.5, 0, 0)
@@ -529,7 +531,7 @@ if (mobileCheck()) cam_fov = 40;
             console.log((xhr.loaded / xhr.total * 100) + '% loaded')
         }
     )
-    loader.load('rabbit.gltf',
+    loader3.load('rabbit.gltf',
         (gltf) => {
             gltf.scene.position.set(-0.35, 0.7, 0)
             gltf.scene.rotation.set(0, 0, 0)
