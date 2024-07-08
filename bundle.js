@@ -614,7 +614,7 @@ console.log("calling function")
                             i(0);
 
                             const load_panel = document.getElementById("loadings");
-                            load_panel.style.display = "none";
+                            //load_panel.style.display = "none";
                     }
                 );
 }
