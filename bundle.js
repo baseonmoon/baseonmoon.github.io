@@ -13,24 +13,26 @@ import * as BufferGeometryUtils from "three/addons/utils/BufferGeometryUtils.js"
 import { ParametricGeometry as t } from "three/addons/geometries/ParametricGeometry.js";
 
 import { ParametricGeometries as o } from "three/addons/geometries/ParametricGeometries.js";
-
-window.mobileCheck = function() {
+import { GLTFLoader } from "https://cdn.rawgit.com/mrdoob/three.js/master/examples/jsm/loaders/GLTFLoader.js";
+window.mobileCheck = function () {
     let check = false;
-    (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
+    (function (a) { if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4))) check = true; })(navigator.userAgent || navigator.vendor || window.opera);
     return check;
-  };
+};
 
 const inner_width_global = window.innerWidth;
 const inner_heigth_global = window.innerHeight;
 
-var cam_fov = 38;
+var cam_fov = 60;
 
-if(mobileCheck()) cam_fov = 40;
+if (mobileCheck()) cam_fov = 40;
 
 // const inner_width_global = 996;
 // const inner_heigth_global = 1174;
 
 !(function () {
+
+
     function s(e, t, o) {
         H.subVectors(t.position, e.position);
         const s = H.length();
@@ -38,11 +40,15 @@ if(mobileCheck()) cam_fov = 40;
         const n = H.multiplyScalar(1 - o / s).multiplyScalar(0.5);
         e.position.add(n), t.position.sub(n);
     }
+
+
     function n() {
         (b.aspect = inner_width_global / inner_heigth_global),
             b.updateProjectionMatrix(),
             g.setSize(inner_width_global, inner_heigth_global);
     }
+
+
     function i(e) {
         requestAnimationFrame(i),
             (function (e) {
@@ -90,6 +96,9 @@ if(mobileCheck()) cam_fov = 40;
                     g.render(S, b);
             })();
     }
+
+
+
     const a = {
         enableWind: !0
     },
@@ -112,6 +121,11 @@ if(mobileCheck()) cam_fov = 40;
     const T = new THREE.Vector3(0, 0, 0),
         R = new THREE.Vector3(),
         H = new THREE.Vector3();
+
+
+
+
+
     class M {
         constructor(e, t, o, s) {
             (this.position = new THREE.Vector3()),
@@ -139,6 +153,9 @@ if(mobileCheck()) cam_fov = 40;
                 this.a.set(0, 0, 0);
         }
     }
+
+
+
     const y = new (class {
         constructor(e = 10, t = 10) {
             function o(t, o) {
@@ -162,6 +179,16 @@ if(mobileCheck()) cam_fov = 40;
     })(c, 10);
     let f, b, S, g, v, G, x, z, C, P, V, B, A, F, L;
     m = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // Materials
+    const textureLoader = new THREE.TextureLoader()
+    const bakedTexture = textureLoader.load('blu.png')
+    bakedTexture.flipY = false
+    bakedTexture.encoding = THREE.sRGBEncoding
+
+    const bakedMaterial = new THREE.MeshBasicMaterial({ map: bakedTexture })
+    //Loader
+    const loader = new GLTFLoader();
+
     const U = new THREE.TextureLoader();
     U.load(
         "moon3.webp",
@@ -169,30 +196,30 @@ if(mobileCheck()) cam_fov = 40;
             ((F = s).anisotropy = 16),
                 (F.colorSpace = THREE.SRGBColorSpace),
                 U.load(
-                    "https://happy358.github.io/Images/textures/lunar_color.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Moon_texture.jpg/2560px-Moon_texture.jpg",
                     function (s) {
                         ((L = s).anisotropy = 16),
                             (function () {
                                 (f = document.createElement("div")),
                                     document.body.appendChild(f),
                                     ((S = new THREE.Scene()).background = new THREE.Color(
-                                        1118481
+                                        0
                                     )),
                                     (b = new THREE.PerspectiveCamera(
                                         cam_fov,
                                         inner_width_global / inner_heigth_global,
                                         0.1,
-                                        150
-                                    )).position.set(0, 0.5, 5),
-                                    S.add(new THREE.AmbientLight("white"));
-                                const s = new THREE.DirectionalLight("white", 2);
+                                        100000
+                                    )).position.set(0, 0.0, 10),
+                                    S.add(new THREE.AmbientLight("white", 3));
+                                const s = new THREE.DirectionalLight("white", 0.5);
                                 let i;
                                 (s.position.y = 2),
                                     (s.position.z = 2),
                                     (s.castShadow = !0),
                                     (s.shadow.mapSize.width = 1024),
                                     (s.shadow.mapSize.height = 1024),
-                                    S.add(s),
+                                    //S.add(s),
                                     (P = new THREE.MeshPhongMaterial({
                                         specular: "silver",
                                         shininess: 100
@@ -202,8 +229,11 @@ if(mobileCheck()) cam_fov = 40;
                                         map: F,
                                         side: THREE.DoubleSide
                                     })),
-                                    (B = new THREE.Mesh(G, z)).position.set(0.39, 0.12, 0),
-                                    B.scale.set(0.0013, 0.0013, 0.0013),
+
+
+                                    //flag pos
+                                    (B = new THREE.Mesh(G, z)).position.set(0.39, 0.7, 0),
+                                    B.scale.set(0.003, 0.003, 0.003),
                                     (B.castShadow = !0),
                                     S.add(B),
                                     (x = new THREE.BoxGeometry(10, 700, 10)),
@@ -226,14 +256,19 @@ if(mobileCheck()) cam_fov = 40;
                                         bumpMap: L,
                                         bumpScale: 20
                                     })),
+
+
+                                    // moon
                                     ((V = new THREE.Mesh(x, z)).position.y = -3.28),
                                     (V.receiveShadow = !0),
-                                    (V.rotation.x = -Math.PI / 8),
-                                    S.add(V);
+                                    (V.rotation.x = -Math.PI / 8);
+                                //S.add(V);
                                 let a,
                                     r,
                                     l = [];
                                 (z = new THREE.MeshLambertMaterial({})),
+
+                                    // body
                                     (l = []),
                                     (x = new THREE.CapsuleGeometry(0.5, 0.7, 4, 10)).translate(
                                         0,
@@ -241,35 +276,50 @@ if(mobileCheck()) cam_fov = 40;
                                         0
                                     ),
                                     l.push(x),
+
+                                    //rigth foot
                                     (x = new THREE.CapsuleGeometry(0.18, 0.5, 4, 10)).translate(
                                         0.2,
                                         -1,
                                         0
                                     ),
                                     l.push(x),
+
+
+                                    //left foot
                                     (x = new THREE.CapsuleGeometry(0.18, 0.5, 4, 10)).translate(
                                         -0.2,
                                         -1,
                                         0
                                     ),
+
+
+                                    // head
                                     l.push(x),
                                     (x = new THREE.SphereGeometry(0.5, 10, 10)).translate(
                                         0,
                                         1.2,
                                         0
                                     ),
+
+                                    // rigth ear
                                     l.push(x),
                                     (x = new THREE.CapsuleGeometry(0.15, 0.5, 4, 8)).translate(
                                         0.2,
                                         1.8,
                                         0
                                     ),
+
+                                    //left ear
                                     l.push(x),
                                     (x = new THREE.CapsuleGeometry(0.15, 0.5, 4, 8)).translate(
                                         -0.2,
                                         1.8,
                                         0
                                     ),
+
+
+                                    //body color
                                     l.push(x),
                                     (x = BufferGeometryUtils.mergeGeometries(l)),
                                     (z = z.clone()).color.set("bisque"),
@@ -279,7 +329,12 @@ if(mobileCheck()) cam_fov = 40;
                                         -0.3,
                                         -0.5
                                     ),
+
+                                    //tail  color
                                     (z = z.clone()).color.set("white");
+
+
+                                // eyes
                                 const h = new THREE.Mesh(x, z);
                                 (h.castShadow = !0),
                                     i.add(h),
@@ -288,11 +343,18 @@ if(mobileCheck()) cam_fov = 40;
                                         1.3,
                                         0.4
                                     ),
+
+
+                                    // eyes
                                     (z = z.clone()).color.set("black");
                                 const c = new THREE.Mesh(x, z);
                                 i.add(c), (x = x.clone()).translate(-0.36, 0, 0);
                                 const E = new THREE.Mesh(x, z);
                                 i.add(E);
+
+
+
+                                // hearth
                                 const d = new THREE.Shape();
                                 d.moveTo(25, 25),
                                     d.bezierCurveTo(25, 25, 20, 0, 0, 0),
@@ -309,7 +371,9 @@ if(mobileCheck()) cam_fov = 40;
                                         bevelSize: 10,
                                         bevelThickness: 10
                                     })),
-                                    (z = z.clone()).color.set("blue");
+                                    (z = z.clone()).color.set("red");
+
+                                // capsule
                                 const p = new THREE.Mesh(x, z);
                                 p.scale.set(0.003, 0.003, 0.003),
                                     p.position.set(0.07, 0.35, 0.5),
@@ -320,6 +384,8 @@ if(mobileCheck()) cam_fov = 40;
                                         1.6,
                                         0
                                     );
+
+                                // head and capsule
                                 let w = new THREE.MeshPhysicalMaterial({
                                     color: "white",
                                     specularColor: "black",
@@ -331,6 +397,7 @@ if(mobileCheck()) cam_fov = 40;
                                     thickness: 0.1,
                                     side: THREE.DoubleSide
                                 });
+
                                 const u = new THREE.Mesh(x, w);
                                 i.add(u),
                                     (x = new THREE.BoxGeometry(0.7, 0.8, 0.3)),
@@ -339,6 +406,8 @@ if(mobileCheck()) cam_fov = 40;
                                     (C.receiveShadow = !0),
                                     (C.castShadow = !0),
                                     i.add(C),
+
+                                    //left arm
                                     (x = new THREE.CapsuleGeometry(0.15, 0.8, 4, 10)).translate(
                                         0,
                                         -0.4,
@@ -350,6 +419,8 @@ if(mobileCheck()) cam_fov = 40;
                                     a.rotation.set(0, 0, -Math.PI / 8),
                                     (a.castShadow = !0),
                                     i.add(a),
+
+                                    //rigth arm
                                     (x = new THREE.CapsuleGeometry(0.15, 0.8, 4, 10)).translate(
                                         0,
                                         -0.4,
@@ -363,7 +434,9 @@ if(mobileCheck()) cam_fov = 40;
                                     i.scale.set(0.2, 0.2, 0.2),
                                     i.position.set(0, 0, 0),
                                     (i.castShadow = !0),
-                                    S.add(i),
+                                    //S.add(i),
+
+                                    // stars
                                     (z = new THREE.PointsMaterial({
                                         color: "white",
                                         size: 0.2,
@@ -421,8 +494,60 @@ if(mobileCheck()) cam_fov = 40;
                                     window.addEventListener("resize", n);
                             })(),
                             i(0);
+
                     }
                 );
         }
     );
+    loader.load('base.glb',
+        (gltf) => {
+            gltf.scene.position.set(0.0, -1.28, 0)
+            gltf.scene.rotation.set(-0.0, 1.58, 0)
+            gltf.scene.scale.set(0.2, 0.2, 0.2);
+            const model = gltf.scene;
+            model.traverse(child => child.material = bakedMaterial)
+            S.add(model)
+            // loading.style.display = 'none'
+
+        },
+        (xhr) => {
+            console.log((xhr.loaded / xhr.total * 100) + '% loaded')
+        }
+    )
+    loader.load('pepe.gltf',
+        (gltf) => {
+            gltf.scene.position.set(0, -0.4, 1.8)
+            gltf.scene.rotation.set(-0.5, 0, 0)
+            gltf.scene.scale.set(0.4, 0.4, 0.4);
+            const model = gltf.scene;
+            // model.traverse(child => child.material = bakedMaterial)
+            S.add(model)
+            // loading.style.display = 'none'
+
+        },
+        (xhr) => {
+            console.log((xhr.loaded / xhr.total * 100) + '% loaded')
+        }
+    )
+    loader.load('rabbit.gltf',
+        (gltf) => {
+            gltf.scene.position.set(-0.35, 0.7, 0)
+            gltf.scene.rotation.set(0, 0, 0)
+            gltf.scene.scale.set(0.1, 0.1, 0.1);
+            const model = gltf.scene;
+            // model.traverse(child => child.material = bakedMaterial)
+            S.add(model)
+            // loading.style.display = 'none'
+            S.position.set(0, 0.8, 0);
+            S.rotation.set(-0.00, -0.5, 0);
+
+        },
+        (xhr) => {
+            console.log((xhr.loaded / xhr.total * 100) + '% loaded')
+        }
+    )
+    
+
 })();
+
+
