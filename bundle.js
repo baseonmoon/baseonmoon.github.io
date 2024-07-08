@@ -1,7 +1,12 @@
+// The code was build on top of the below author which can seen in the copyrigth mark which is taken from codepen
+// And all the licences for the used models are above them where ther are loaded in code see blow.
+
 /*!
 Flag Animation
 Copyright (c) 2023 by Wakana Y.K. (https://codepen.io/wakana-k/pen/wvNOqmX)
 */
+
+
 "use strict";
 
 import * as THREE from "three";
@@ -23,13 +28,131 @@ window.mobileCheck = function () {
 const inner_width_global = window.innerWidth;
 const inner_heigth_global = window.innerHeight;
 
-var cam_fov = 60;
+var cam_fov = 70;
 
 if (mobileCheck()) cam_fov = 40;
 
 // const inner_width_global = 996;
 // const inner_heigth_global = 1174;
 
+
+
+var model_pepe = null;
+var model_rabbit = null;
+var model_base = null;
+
+
+// Materials
+const textureLoader = new THREE.TextureLoader()
+const bakedTexture = textureLoader.load('blu.png')
+bakedTexture.flipY = false
+bakedTexture.encoding = THREE.sRGBEncoding
+
+const bakedMaterial = new THREE.MeshBasicMaterial({ map: bakedTexture })
+//Loader
+const loader = new GLTFLoader();
+const loader2 = new GLTFLoader();
+const loader3 = new GLTFLoader();
+
+
+
+// Model Information:
+// * title:	Pepe The Frog
+// * source:	https://sketchfab.com/3d-models/pepe-the-frog-28a929586c2a4e1f965bafc8085a2e19
+// * author:	OCBacon (https://sketchfab.com/OCBacon)
+
+// Model License:
+// * license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+// * requirements:	Author must be credited. Commercial use is allowed.
+
+// If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+// This work is based on "Pepe The Frog" (https://sketchfab.com/3d-models/pepe-the-frog-28a929586c2a4e1f965bafc8085a2e19) by OCBacon (https://sketchfab.com/OCBacon) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+
+console.log("loading pepe")
+await loader2.load('pepe.gltf',
+    (gltf) => {
+        gltf.scene.position.set(0, -0.7, 3.05)
+        gltf.scene.rotation.set(-0.4, 0, 0)
+        gltf.scene.scale.set(0.4, 0.4, 0.4);
+        const model = gltf.scene;
+        // model.traverse(child => child.material = bakedMaterial)
+        model_pepe = model;
+        // loading.style.display = 'none'
+        console.log("loaded pepe")
+
+    },
+    (xhr) => {
+        //console.log((xhr.loaded / xhr.total * 100) + '% loaded')
+    }
+)
+
+
+
+
+// Model Information:
+// * title:	Rabbit plush / Conejo Peluche
+// * source:	https://sketchfab.com/3d-models/rabbit-plush-conejo-peluche-45e3b8b81f0444c68fd4bcb23ba9251e
+// * author:	Andres Zuluaga (https://sketchfab.com/afzmtm)
+
+// Model License:
+// * license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+// * requirements:	Author must be credited. Commercial use is allowed.
+
+// If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+// This work is based on "Rabbit plush / Conejo Peluche" (https://sketchfab.com/3d-models/rabbit-plush-conejo-peluche-45e3b8b81f0444c68fd4bcb23ba9251e) by Andres Zuluaga (https://sketchfab.com/afzmtm) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+
+
+console.log("loading rabbit")
+await loader3.load('rabbit.gltf',
+    (gltf) => {
+        gltf.scene.position.set(-0.35, 1.68, 0)
+        gltf.scene.rotation.set(0, 0, 0)
+        gltf.scene.scale.set(0.1, 0.1, 0.1);
+        const model = gltf.scene;
+        // model.traverse(child => child.material = bakedMaterial)
+        model_rabbit = model;
+        console.log("loaded rabbit")
+
+    },
+    (xhr) => {
+        //console.log((xhr.loaded / xhr.total * 100) + '% loaded')
+    }
+)
+
+
+// custom made
+const load_text = document.getElementById("loadtext");
+console.log("loading base")
+await loader.load('base.glb',
+    (gltf) => {
+        gltf.scene.position.set(0.0, -1.28, 0)
+        gltf.scene.rotation.set(-0.0, 1.58, 0)
+        gltf.scene.scale.set(0.3, 0.3, 0.3);
+        const model = gltf.scene;
+        model.traverse(child => child.material = bakedMaterial)
+        model_base = model;
+        console.log("loaded base")
+
+    },
+    (xhr) => {
+        var text = (xhr.loaded / xhr.total * 100) + '% loaded';
+        load_text.innerHTML = text;
+    }
+)
+
+
+
+while (true) {
+    console.log("here 1")
+    await new Promise(r => setTimeout(r, 10));
+    if (model_base != null && model_pepe != null && model_rabbit != null) break;
+    console.log("here 2")
+}
+
+const load_panel = document.getElementById("loadings");
+load_panel.style.display = "none";
+
+console.log("calling function")
 !(function () {
 
 
@@ -179,17 +302,7 @@ if (mobileCheck()) cam_fov = 40;
     })(c, 10);
     let f, b, S, g, v, G, x, z, C, P, V, B, A, F, L;
     m = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    // Materials
-    const textureLoader = new THREE.TextureLoader()
-    const bakedTexture = textureLoader.load('blu.png')
-    bakedTexture.flipY = false
-    bakedTexture.encoding = THREE.sRGBEncoding
 
-    const bakedMaterial = new THREE.MeshBasicMaterial({ map: bakedTexture })
-    //Loader
-    const loader = new GLTFLoader();
-    const loader2 = new GLTFLoader();
-    const loader3 = new GLTFLoader();
 
     const U = new THREE.TextureLoader();
     U.load(
@@ -210,11 +323,12 @@ if (mobileCheck()) cam_fov = 40;
                                     (b = new THREE.PerspectiveCamera(
                                         cam_fov,
                                         inner_width_global / inner_heigth_global,
-                                        0.1,
+                                        0.001,
                                         100000
-                                    )).position.set(0, 0.0, 10),
+                                    )).position.set(0, 0.0, 20),
                                     S.add(new THREE.AmbientLight("white", 3));
                                 const s = new THREE.DirectionalLight("white", 0.5);
+                                S.rotation.set(0, -0.5, 0);
                                 let i;
                                 (s.position.y = 2),
                                     (s.position.z = 2),
@@ -234,7 +348,7 @@ if (mobileCheck()) cam_fov = 40;
 
 
                                     //flag pos
-                                    (B = new THREE.Mesh(G, z)).position.set(0.39, 0.7, 0),
+                                    (B = new THREE.Mesh(G, z)).position.set(0.8, 2.5, 0),
                                     B.scale.set(0.003, 0.003, 0.003),
                                     (B.castShadow = !0),
                                     S.add(B),
@@ -265,6 +379,9 @@ if (mobileCheck()) cam_fov = 40;
                                     (V.receiveShadow = !0),
                                     (V.rotation.x = -Math.PI / 8);
                                 //S.add(V);
+                                S.add(model_pepe);
+                                S.add(model_rabbit);
+                                S.add(model_base);
                                 let a,
                                     r,
                                     l = [];
@@ -416,7 +533,7 @@ if (mobileCheck()) cam_fov = 40;
                                         0
                                     ),
                                     (x.verticesNeedUpdate = !0),
-                                    (z = z.clone()).color.set("bisque"),
+                                    (z = z.clone()).color.set("white"),
                                     (a = new THREE.Mesh(x, z)).position.set(-0.4, 0.5, 0),
                                     a.rotation.set(0, 0, -Math.PI / 8),
                                     (a.castShadow = !0),
@@ -441,7 +558,7 @@ if (mobileCheck()) cam_fov = 40;
                                     // stars
                                     (z = new THREE.PointsMaterial({
                                         color: "white",
-                                        size: 0.2,
+                                        size: 0.05,
                                         sizeAttenuation: !0
                                     }));
                                 let m,
@@ -464,7 +581,7 @@ if (mobileCheck()) cam_fov = 40;
                                             0.5),
                                         M.copy(M).multiplyScalar(m),
                                         R.push(M.x, M.y, M.z),
-                                        T.setHSL(0.2, 1, THREE.MathUtils.randFloat(0.3, 0.9)),
+                                        T.setHSL(0.2, 1, THREE.MathUtils.randFloat(0.9, 0.9)),
                                         H.push(T.r, T.g, T.b);
                                 }
                                 x.setAttribute(
@@ -500,54 +617,8 @@ if (mobileCheck()) cam_fov = 40;
                     }
                 );
         }
+
     );
-    loader2.load('pepe.gltf',
-        (gltf) => {
-            gltf.scene.position.set(0, -0.4, 1.8)
-            gltf.scene.rotation.set(-0.5, 0, 0)
-            gltf.scene.scale.set(0.4, 0.4, 0.4);
-            const model = gltf.scene;
-            // model.traverse(child => child.material = bakedMaterial)
-            S.add(model)
-            // loading.style.display = 'none'
-
-        },
-        (xhr) => {
-            console.log((xhr.loaded / xhr.total * 100) + '% loaded')
-        }
-    )
-    loader3.load('rabbit.gltf',
-        (gltf) => {
-            gltf.scene.position.set(-0.35, 0.7, 0)
-            gltf.scene.rotation.set(0, 0, 0)
-            gltf.scene.scale.set(0.1, 0.1, 0.1);
-            const model = gltf.scene;
-            // model.traverse(child => child.material = bakedMaterial)
-            S.add(model)
-            // loading.style.display = 'none'
-            S.position.set(0, 0.8, 0);
-            S.rotation.set(-0.00, -0.5, 0);
-
-        },
-        (xhr) => {
-            console.log((xhr.loaded / xhr.total * 100) + '% loaded')
-        }
-    )
-    loader.load('base.glb',
-    (gltf) => {
-        gltf.scene.position.set(0.0, -1.28, 0)
-        gltf.scene.rotation.set(-0.0, 1.58, 0)
-        gltf.scene.scale.set(0.2, 0.2, 0.2);
-        const model = gltf.scene;
-        model.traverse(child => child.material = bakedMaterial)
-        S.add(model)
-        // loading.style.display = 'none'
-
-    },
-    (xhr) => {
-        console.log((xhr.loaded / xhr.total * 100) + '% loaded')
-    }
-)
 
 })();
 

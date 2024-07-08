@@ -351,3 +351,26 @@ a {
 .flagmoon{
   width: 80%;
 }
+
+#loadings{
+  top:0;
+  left: 0;
+  position: absolute;
+  z-index: 10000;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+}
+
+#loadtext{
+  font-size: 60px;
+  position: relative;
+  height: fit-content;
+  color: white;
+  display: block;
+  left: 0;
+  top:0;
+  text-align: center;
+  margin-top: 20%;
+  margin-bottom: auto;
+}
